@@ -26,9 +26,10 @@ pipeline{
           }
         }
 
-        stage("Dependencies"){
+        stage("Test"){
           steps{
             dir('springboot-backend'){
+                sh "java -version"
                 sh "mvn test"
             }
           }
