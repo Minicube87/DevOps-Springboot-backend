@@ -36,5 +36,5 @@ jobs:
         working-directory: ${{ env.BACKEND_DIR }}
 
       - name: Deploy
-        run: echo "Deployed"
+        run: echo "Deployed!"
         working-directory: ${{ env.BACKEND_DIR }}
