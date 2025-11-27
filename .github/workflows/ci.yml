@@ -26,16 +26,16 @@ jobs:
 
       - name: Compile
         run: mvn compile
-        working-directory: ${{ env.BACKEND_DIR }
+        working-directory: ${{ env.BACKEND_DIR }}
 
       - name: Test
         run: mvn test
-        working-directory: ${{ env.BACKEND_DIR }
+        working-directory: ${{ env.BACKEND_DIR }}
 
       - name: Package
         run: mvn clean package
-        working-directory: ${{ env.BACKEND_DIR }
+        working-directory: ${{ env.BACKEND_DIR }}
 
       - name: Deploy
         run: echo "Deployed"
-        working-directory: ${{ env.BACKEND_DIR }
+        working-directory: ${{ env.BACKEND_DIR }}
