@@ -22,8 +22,6 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
-      - run: java HelloWorldApp.java
-        working-directory: ${{ env.BACKEND_DIR }}
 
       - name: Compile
         run: mvn compile
