@@ -21,6 +21,7 @@ pipeline{
         stage("Build"){
           steps{
             dir('springboot-backend'){
+                sh "java -version"
                 sh "mvn clean package"
             }
           }
@@ -29,7 +30,6 @@ pipeline{
         stage("Test"){
           steps{
             dir('springboot-backend'){
-                sh "java -version"
                 sh "mvn test"
             }
           }
