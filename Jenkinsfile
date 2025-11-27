@@ -11,7 +11,9 @@ pipeline{
         // Ziehe Code aus Repo
         stage("Compile"){
           steps{
-            sh "mvn compile"
+            dir('springboot-backend'){
+                sh "mvn compile"
+            }
           }
         }
 
@@ -26,7 +28,9 @@ pipeline{
 
         stage("Dependencies"){
           steps{
-            sh "mvn test"
+            dir('springboot-backend'){
+                sh "mvn test"
+            }
           }
         }
     }
