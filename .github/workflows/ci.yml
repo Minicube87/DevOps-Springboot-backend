@@ -1,0 +1,41 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  BACKEND_DIR: springboot-backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Hol Repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Setze Java-Version
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
+      - run: java HelloWorldApp.java
+
+      - name: Compile
+        run: mvn compile
+        working-directory: ${{ env.BACKEND_DIR }
+
+      - name: Test
+        run: mvn test
+        working-directory: ${{ env.BACKEND_DIR }
+
+      - name: Package
+        run: mvn clean package
+        working-directory: ${{ env.BACKEND_DIR }
+
+      - name: Deploy
+        run: echo "Deployed"
+        working-directory: ${{ env.BACKEND_DIR }
