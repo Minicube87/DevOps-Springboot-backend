@@ -18,7 +18,9 @@ pipeline{
         // Baue die Anwendung
         stage("Build"){
           steps{
-            sh "mvn clean package"
+            dir('springboot-backend'){
+                sh "mvn clean package"
+            }
           }
         }
 
